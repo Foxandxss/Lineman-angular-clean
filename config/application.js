@@ -55,5 +55,23 @@ module.exports = function(lineman) {
     //
     // livereload: true
 
+    ngtemplates: {
+      app: {
+        options: {
+          module: 'app',
+          base: 'app/js'
+        },
+        src: 'app/js/**/*.tpl.html',
+        dest: '<%= files.ngtemplates.dest %>'
+      }
+    },
+
+    watch: {
+      ngtemplates: {
+        files: 'app/js/**/*.tpl.html',
+        tasks: ['ngtemplates', 'concat_sourcemap:js']
+      }
+    }
+
   };
 };
